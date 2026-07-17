@@ -1,1 +1,3 @@
-console.log("Sanatan Capital");
+// Sanatan Capital JavaScript
+
+console.log("Sanatan Capital Website Loaded");
