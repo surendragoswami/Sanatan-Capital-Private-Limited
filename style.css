@@ -85,5 +85,31 @@ gap:12px;
 }
 
 .call-btn{
+background:#ff7a00;
+color:#fff;
+padding:12px 24px;
+text-decoration:none;
+border-radius:8px;
+font-weight:600;
+transition:.3s;
+display:inline-block;
+}
 
-background:#
+.call-btn:hover{
+background:#e66900;
+}
+
+.wa-btn{
+background:#25D366;
+color:#fff;
+padding:12px 24px;
+text-decoration:none;
+border-radius:8px;
+font-weight:600;
+transition:.3s;
+display:inline-block;
+}
+
+.wa-btn:hover{
+background:#1da851;
+}
