@@ -51,3 +51,44 @@ function calculateEMI() {
 }
 
 
+
+// =====================================
+// LOAN ELIGIBILITY CHECKER
+// =====================================
+
+function checkEligibility() {
+
+    const income = parseFloat(document.getElementById("monthlyIncome").value);
+    const emi = parseFloat(document.getElementById("existingEmi").value) || 0;
+    const cibil = parseInt(document.getElementById("cibilScore").value);
+
+    const result = document.getElementById("eligibilityResult");
+
+    if (isNaN(income) || document.getElementById("employmentType").value === "") {
+        result.innerHTML = "⚠ Please complete all required details.";
+        result.style.color = "#d97706";
+        return;
+    }
+
+    // EMI Ratio
+    const emiRatio = (emi / income) * 100;
+
+    if ((cibil >= 750 || cibil === 0) && income >= 30000 && emiRatio <= 40) {
+
+        result.innerHTML = "✅ Congratulations! You are likely eligible for a loan.";
+        result.style.color = "#16a34a";
+
+    } else if (income >= 20000 && emiRatio <= 55) {
+
+        result.innerHTML = "🟡 You may be eligible. Final approval depends on lender verification.";
+        result.style.color = "#ca8a04";
+
+    } else {
+
+        result.innerHTML = "❌ Based on the information provided, eligibility appears low. Please contact our advisor.";
+        result.style.color = "#dc2626";
+
+    }
+
+}
+
