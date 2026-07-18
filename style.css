@@ -526,3 +526,94 @@ ul{
 
 
 
+/* ===================================
+   EMI CALCULATOR
+=================================== */
+
+.emi-section{
+    padding:100px 0;
+    background:#f8fbff;
+}
+
+.emi-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:40px;
+    margin-top:60px;
+}
+
+.emi-form,
+.emi-result{
+    background:#ffffff;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+}
+
+.input-group{
+    margin-bottom:25px;
+}
+
+.input-group label{
+    display:block;
+    margin-bottom:10px;
+    font-weight:600;
+    color:#0A2540;
+}
+
+.input-group input{
+    width:100%;
+    padding:16px;
+    border:1px solid #dbe5f0;
+    border-radius:10px;
+    font-size:16px;
+    outline:none;
+}
+
+.input-group input:focus{
+    border-color:#0B5ED7;
+}
+
+.calculate-btn{
+    width:100%;
+    padding:18px;
+    background:#0B5ED7;
+    color:#fff;
+    border:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.calculate-btn:hover{
+    background:#0849a6;
+}
+
+.result-card{
+    background:#f5f9ff;
+    padding:25px;
+    border-radius:15px;
+    margin-bottom:20px;
+    border-left:5px solid #0B5ED7;
+}
+
+.result-card h3{
+    color:#555;
+    margin-bottom:10px;
+}
+
+.result-card h2{
+    color:#0A2540;
+    font-size:32px;
+}
+
+@media(max-width:900px){
+
+.emi-wrapper{
+    grid-template-columns:1fr;
+}
+
+}
+
