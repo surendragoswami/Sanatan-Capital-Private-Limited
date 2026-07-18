@@ -485,6 +485,113 @@ Calculate EMI
 
 
 
+<!-- ===================================
+     LOAN APPLICATION FORM
+=================================== -->
+
+<section id="apply-loan" class="loan-form-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>APPLY NOW</span>
+
+            <h2>Apply for a Loan</h2>
+
+            <p>Fill in your details and our loan expert will contact you shortly.</p>
+
+        </div>
+
+        <form id="loanForm" class="loan-form">
+
+            <div class="form-grid">
+
+                <div class="input-group">
+                    <label>Full Name *</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Mobile Number *</label>
+                    <input type="tel" id="mobileNumber" placeholder="10-digit mobile number" maxlength="10" required>
+                </div>
+
+                <div class="input-group">
+                    <label>WhatsApp Number</label>
+                    <input type="tel" id="whatsappNumber" placeholder="WhatsApp number" maxlength="10">
+                </div>
+
+                <div class="input-group">
+                    <label>Email Address</label>
+                    <input type="email" id="emailAddress" placeholder="example@email.com">
+                </div>
+
+                <div class="input-group">
+                    <label>Loan Type *</label>
+                    <select id="loanTypeForm" required>
+                        <option value="">Select Loan Type</option>
+                        <option>Home Loan</option>
+                        <option>LAP</option>
+                        <option>Business Loan</option>
+                        <option>MSME Loan</option>
+                        <option>Personal Loan</option>
+                        <option>Vehicle Loan</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Required Loan Amount *</label>
+                    <input type="number" id="loanAmountForm" placeholder="500000" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Employment Type *</label>
+                    <select id="employmentForm" required>
+                        <option value="">Select</option>
+                        <option>Salaried</option>
+                        <option>Business</option>
+                        <option>Professional</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label>Monthly Income *</label>
+                    <input type="number" id="monthlyIncomeForm" placeholder="50000" required>
+                </div>
+
+            </div>
+
+            <div class="input-group">
+
+                <label>Additional Information</label>
+
+                <textarea id="remarks" rows="5" placeholder="Write your requirements or message..."></textarea>
+
+            </div>
+
+            <div class="checkbox-group">
+
+                <input type="checkbox" id="agree" required>
+
+                <label for="agree">
+                    I agree to be contacted by Sanatan Capital regarding my loan enquiry.
+                </label>
+
+            </div>
+
+            <button type="submit" class="calculate-btn">
+                Submit Application
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+
 
   <!-- ==========================
      PARTNER BANKS
