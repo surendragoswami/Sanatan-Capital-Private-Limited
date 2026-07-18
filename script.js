@@ -92,3 +92,64 @@ function checkEligibility() {
 
 }
 
+
+
+// =====================================
+// LOAN APPLICATION FORM VALIDATION
+// =====================================
+
+document.getElementById("loanForm").addEventListener("submit", function (e) {
+
+    e.preventDefault();
+
+    const fullName = document.getElementById("fullName").value.trim();
+    const mobile = document.getElementById("mobileNumber").value.trim();
+    const whatsapp = document.getElementById("whatsappNumber").value.trim();
+    const email = document.getElementById("emailAddress").value.trim();
+    const loanType = document.getElementById("loanTypeForm").value;
+    const loanAmount = document.getElementById("loanAmountForm").value;
+    const employment = document.getElementById("employmentForm").value;
+    const income = document.getElementById("monthlyIncomeForm").value;
+    const agree = document.getElementById("agree").checked;
+
+    if (
+        fullName === "" ||
+        mobile === "" ||
+        loanType === "" ||
+        loanAmount === "" ||
+        employment === "" ||
+        income === ""
+    ) {
+        alert("Please fill all required fields.");
+        return;
+    }
+
+    if (!/^[6-9]\d{9}$/.test(mobile)) {
+        alert("Please enter a valid 10-digit Indian mobile number.");
+        return;
+    }
+
+    if (whatsapp !== "" && !/^[6-9]\d{9}$/.test(whatsapp)) {
+        alert("Please enter a valid WhatsApp number.");
+        return;
+    }
+
+    if (
+        email !== "" &&
+        !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+    ) {
+        alert("Please enter a valid email address.");
+        return;
+    }
+
+    if (!agree) {
+        alert("Please accept the consent checkbox.");
+        return;
+    }
+
+    alert("✅ Thank you! Your loan enquiry has been submitted successfully.");
+
+    document.getElementById("loanForm").reset();
+
+});
+
