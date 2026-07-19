@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -55,7 +55,7 @@
     <header id="header" class="header" role="banner">
         <nav class="navbar container" aria-label="Main Navigation">
             <a href="#" class="logo" aria-label="Sanatan Capital Home">
-                <img src="assets/logo-horizontal.png" alt="Sanatan Capital Logo">
+                <img src="assets/logo-horizontal.png" alt="Sanatan Capital Logo" onerror="this.src='assets/logo.png'; this.alt='Sanatan Capital';">
             </a>
             <div class="nav-links" role="navigation">
                 <a href="#home">Home</a>
@@ -86,7 +86,7 @@
                 <p class="disclaimer"><i class="fas fa-shield-alt"></i> We are a DSA company. Loans are processed & disbursed by our partner financial institutions.</p>
             </div>
             <div class="hero-image reveal-right">
-                <img src="assets/hero%20illustration.png" alt="Financial Growth Illustration" loading="eager">
+                <img src="assets/hero%20illustration.png" alt="Financial Growth Illustration" loading="eager" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -95,7 +95,7 @@
     <section id="about" class="about section bg-light">
         <div class="container about-container">
             <div class="about-image reveal-left">
-                <img src="assets/About%20Us.png" alt="About Sanatan Capital Team" loading="lazy">
+                <img src="assets/About%20Us.png" alt="About Sanatan Capital Team" loading="lazy" onerror="this.style.display='none'">
             </div>
             <div class="about-content reveal-right">
                 <h4 class="section-subtitle">Who We Are</h4>
@@ -120,7 +120,7 @@
                 <p>Explore our diverse portfolio of loan products sourced through top lending partners.</p>
             </div>
             <div class="banner-wrapper reveal-up">
-                <img src="assets/Loan%20Products.png" alt="Loan Products Banner" class="section-banner" loading="lazy">
+                <img src="assets/Loan%20Products.png" alt="Loan Products Banner" class="section-banner" loading="lazy" onerror="this.style.display='none'">
             </div>
             
             <div class="product-grid">
@@ -223,12 +223,9 @@
         </div>
     </section>
 
-    <!-- Why Choose Us & Counters -->
+    <!-- Why Choose Us -->
     <section class="why-us section bg-dark text-white">
         <div class="container">
-            
-   
-            <!-- Features Grid -->
             <div class="section-header reveal-up text-center w-100">
                 <h4 class="section-subtitle text-secondary">Our Advantages</h4>
                 <h2 class="section-title text-white">Why Choose Sanatan Capital?</h2>
@@ -263,11 +260,6 @@
                     <i class="fas fa-headset text-secondary"></i>
                     <h4>Dedicated Support</h4>
                     <p>Expert guidance at every step.</p>
-                </div>
-                <div class="feature-box reveal-up" style="transition-delay: 0.6s;">
-                    <i class="fas fa-calendar-check text-secondary"></i>
-                    <h4>Flexible EMI</h4>
-                    <p>Repayment plans that suit you.</p>
                 </div>
             </div>
         </div>
@@ -321,8 +313,8 @@
                     </div>
                 </div>
             </div>
-            <div class="process-image reveal-right" style="align-self: center;">
-                <img src="assets/Loan%20Process.png" alt="Loan Process Steps" loading="lazy">
+            <div class="process-image reveal-right">
+                <img src="assets/Loan%20Process.png" alt="Loan Process Steps" loading="lazy" onerror="this.style.display='none'">
             </div>
         </div>
     </section>
@@ -331,7 +323,7 @@
     <section class="documents section">
         <div class="container docs-container">
             <div class="docs-image reveal-left">
-                <img src="assets/Documents.png" alt="Required Documents Checklist" loading="lazy">
+                <img src="assets/Documents.png" alt="Required Documents Checklist" loading="lazy" onerror="this.style.display='none'">
             </div>
             <div class="docs-content reveal-right">
                 <h4 class="section-subtitle">Be Prepared</h4>
@@ -340,13 +332,10 @@
                     <ul class="doc-list detailed-docs">
                         <li><i class="fas fa-id-card"></i> <strong>Aadhaar Card:</strong> Mandatory for KYC.</li>
                         <li><i class="fas fa-address-card"></i> <strong>PAN Card:</strong> Required for financial tracking.</li>
-                        <li><i class="fas fa-camera"></i> <strong>Passport Size Photo:</strong> Recent color photographs.</li>
                         <li><i class="fas fa-university"></i> <strong>Bank Statement:</strong> Last 6 to 12 months reflecting income.</li>
                         <li><i class="fas fa-file-invoice-dollar"></i> <strong>Income Proof:</strong> Salary Slips / Form 16 / ITR.</li>
-                        <li><i class="fas fa-briefcase"></i> <strong>Business Proof:</strong> GST Certificate / Trade License.</li>
-                        <li><i class="fas fa-certificate"></i> <strong>Udyam Registration:</strong> Specifically for MSME loans.</li>
-                        <li><i class="fas fa-home"></i> <strong>Property Papers:</strong> Title deed, chain documents (for LAP/Home Loan).</li>
-                        <li><i class="fas fa-car"></i> <strong>Vehicle RC & Insurance:</strong> For commercial or personal vehicle loans.</li>
+                        <li><i class="fas fa-briefcase"></i> <strong>Business Proof:</strong> GST Certificate / Trade License / Udyam.</li>
+                        <li><i class="fas fa-home"></i> <strong>Property/Vehicle Papers:</strong> For secured loans.</li>
                     </ul>
                 </div>
             </div>
@@ -445,42 +434,6 @@
             </div>
         </div>
     </section>
-    
-    <!-- Testimonials Section -->
-    <section class="testimonials section bg-light">
-        <div class="container">
-            <div class="section-header reveal-up">
-                <h4 class="section-subtitle">Client Stories</h4>
-                <h2 class="section-title">What Our Customers Say</h2>
-            </div>
-            <div class="testimonial-grid">
-                <div class="testimonial-card reveal-up">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p>"Sanatan Capital made my business expansion possible. The MSME loan process was completely transparent and much faster than I expected."</p>
-                    <div class="client-info">
-                        <h4>Rajesh Kumar</h4>
-                        <span>Business Owner</span>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal-up" style="transition-delay: 0.1s;">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p>"I was struggling to get a home loan due to document issues, but their dedicated support team guided me perfectly. Now I own my dream home!"</p>
-                    <div class="client-info">
-                        <h4>Priya Sharma</h4>
-                        <span>Self Employed</span>
-                    </div>
-                </div>
-                <div class="testimonial-card reveal-up" style="transition-delay: 0.2s;">
-                    <i class="fas fa-quote-left quote-icon"></i>
-                    <p>"Very professional team. They connected me with a top partner bank and negotiated the lowest interest rate for my Loan Against Property."</p>
-                    <div class="client-info">
-                        <h4>Vikram Singh</h4>
-                        <span>Contractor</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Advanced Lead Form Application Section -->
     <section id="apply" class="apply section bg-dark text-white">
@@ -533,7 +486,7 @@
         </div>
     </section>
 
-    <!-- Expanded FAQ Section (10 Questions) -->
+    <!-- Expanded FAQ Section -->
     <section class="faq section bg-light">
         <div class="container reveal-up">
             <div class="section-header">
@@ -541,13 +494,12 @@
                 <h2 class="section-title">Frequently Asked Questions</h2>
             </div>
             <div class="faq-accordion">
-                     <div class="faq-item">
+                <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">Are you a direct lender or a DSA? <i class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
-                        <p>Sanatan Capital Private Limited proudly operates through two strong financial verticals. Under our <strong>Business Correspondent (BC)</strong> model, we provide loans directly in partnership with top NBFCs—meaning the entire loan process, from application to approval, is completely managed by the Sanatan Capital team. Additionally, through our <strong>Premium DSA</strong> vertical, we distribute loans by connecting you with a wide network of leading Banks and NBFCs. Regardless of the loan type, your complete journey is processed and supported seamlessly by us.</p>
+                        <p>Sanatan Capital Private Limited proudly operates through two strong financial verticals. We provide loans in partnership with top NBFCs and distribute loans by connecting you with a wide network of leading Banks. Your complete journey is processed and supported seamlessly by us.</p>
                     </div>
-                       </div>
-                
+                </div>
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">Do you charge consultation fees from customers? <i class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
@@ -557,7 +509,7 @@
                 <div class="faq-item">
                     <button class="faq-question" aria-expanded="false">How long does it take to get a loan approved? <i class="fas fa-chevron-down"></i></button>
                     <div class="faq-answer">
-                        <p>Approval timelines vary. Personal/Vehicle loans can be approved in 24-48 hours. Business or MSME loans may take 3-7 days, while Home Loans or LAP may take 7-14 working days due to physical property valuation and legal checks.</p>
+                        <p>Approval timelines vary. Personal/Vehicle loans can be approved in 24-48 hours. Business or MSME loans may take 3-7 days, while Home Loans or LAP may take 7-14 working days.</p>
                     </div>
                 </div>
                 <div class="faq-item">
@@ -566,47 +518,11 @@
                         <p>Yes. While a higher CIBIL score (750+) gets you the best interest rates, we work with specific NBFC partners who specialize in funding clients with lower credit scores or those new to credit.</p>
                     </div>
                 </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">What is a Loan Against Property (LAP)? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>LAP allows you to pledge your commercial, residential, or industrial property as collateral to secure a high-value loan for business expansion, medical needs, or education, usually at lower interest rates than unsecured loans.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Are daily wage workers or farmers eligible? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Yes, we have specialized schemes through our partner NBFCs that cater to farmers (Tractor loans, agriculture infrastructure) and daily wage workers depending on their banking habits and asset holding.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">What documents are required for an MSME Loan? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Typically, you need KYC documents, Udyam Registration Certificate, GST returns (if applicable), last 1-3 years ITR, and 6-12 months of current account bank statements.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Can I prepay or foreclose my loan? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Yes, most of our partner banks allow part-payment or foreclosure. Some may charge a nominal foreclosure fee (usually 2-4%), while others (especially for floating rate Home Loans for individuals) charge zero foreclosure penalties as per RBI guidelines.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Is my data and personal information secure? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Absolutely. We follow strict data privacy protocols. Your documents and details are only shared with the specific bank/NBFC where your file is being processed via secure channels.</p>
-                    </div>
-                </div>
-                <div class="faq-item">
-                    <button class="faq-question" aria-expanded="false">Do you help with PMAY (Pradhan Mantri Awas Yojana)? <i class="fas fa-chevron-down"></i></button>
-                    <div class="faq-answer">
-                        <p>Yes, our experts guide eligible first-time homebuyers through the PMAY subsidy process, ensuring they get the maximum interest subvention benefit on their Home Loan.</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Expanded Contact & CTA Section -->
+    <!-- Expanded Contact Section -->
     <section id="contact" class="contact section">
         <div class="container">
             <div class="section-header text-center reveal-up">
@@ -634,36 +550,13 @@
                         <i class="fas fa-phone-alt"></i>
                         <div>
                             <h4>Call or WhatsApp</h4>
-                            <p>+91 7023654630<br>+91 9664223901 (Toll Free)</p>
-                        </div>
-                    </div>
-                    <div class="info-card">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <h4>Working Hours</h4>
-                            <p>Monday - Saturday: 10:00 AM - 6:30 PM<br>Sunday: Closed</p>
+                            <p>+91 7023654630<br>+91 9664223901</p>
                         </div>
                     </div>
                 </div>
                 <div class="contact-map reveal-right">
-                    <div class="map-wrapper">
-                        
-                    </div> 
-                    <img src="assets/Customer%20Support.png" alt="Customer Support Location" loading="lazy">  
+                    <img src="assets/Customer%20Support.png" alt="Customer Support Location" loading="lazy" onerror="this.style.display='none'">  
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Pre-Footer CTA Banner -->
-    <section class="cta-banner section bg-primary text-white text-center">
-        <div class="container reveal-up">
-            <h2 class="mb-4 text-white">Take the First Step Towards Your Goals</h2>
-            <p class="mb-4">Speak to our financial experts today and find the perfect loan solution with minimal hassle.</p>
-            <div class="cta-buttons">
-                <a href="#apply" class="btn btn-secondary mx-2">Apply Now</a>
-                <a href="tel:+919664223901" class="btn btn-outline-white mx-2">Talk to Expert</a>
-                <a href="#tools" class="btn btn-outline-white mx-2">Check Eligibility</a>
             </div>
         </div>
     </section>
@@ -707,13 +600,12 @@
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
                     <li><a href="#">Disclaimer</a></li>
-                    <li><a href="#">DSA Partners List</a></li>
                 </ul>
             </div>
         </div>
         <div class="footer-bottom container">
             <p><strong>Disclaimer:</strong> Sanatan Capital Private Limited operates strictly as a DSA/Loan Distributor. We are not an NBFC or a direct lending institution. All credit decisions and loan disbursals are at the sole discretion of our partner banks and NBFCs.</p>
-            <p>&copy; <span id="year"></span> Sanatan Capital Private Limited. All Rights Reserved.</p>
+            <p>&copy; <span id="year">2026</span> Sanatan Capital Private Limited. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -724,7 +616,7 @@
     <a href="tel:+919664223901" class="float-btn float-call" aria-label="Call Us">
         <i class="fas fa-phone-alt"></i>
     </a>
-    <button id="scrollTop" class="float-btn float-top" aria-label="Scroll to top">
+    <button id="scrollTop" class="float-btn float-top show" aria-label="Scroll to top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
