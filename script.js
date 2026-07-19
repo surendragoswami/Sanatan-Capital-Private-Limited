@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- 1. Set Copyright Year ---
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    // --- 2. Mobile Menu Toggle (Accessibility Improved) ---
+    // --- 2. Mobile Menu Toggle ---
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const links = document.querySelectorAll('.nav-links a');
@@ -34,8 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const scrollTopBtn = document.getElementById('scrollTop');
 
     window.addEventListener('scroll', () => {
-        // Debouncing/Throttling is generally recommended for performance, 
-        // but for simple class toggles on scrollY, modern browsers handle this efficiently.
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
@@ -53,14 +51,13 @@ document.addEventListener('DOMContentLoaded', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 
-    // --- 4. Scroll Reveal Animation (Performance Optimized) ---
+    // --- 4. Scroll Reveal Animation ---
     const revealElements = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
     
     const revealCallback = (entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('active');
-                // Observe once and then stop tracking for better performance
                 observer.unobserve(entry.target);
             }
         });
@@ -81,8 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const runCounters = () => {
         counters.forEach(counter => {
             const target = +counter.getAttribute('data-target');
-            const duration = 2000; // 2 seconds
-            const increment = target / (duration / 16); // ~60fps
+            const duration = 2000; 
+            const increment = target / (duration / 16); 
             
             let current = 0;
             const updateCounter = () => {
@@ -108,21 +105,19 @@ document.addEventListener('DOMContentLoaded', () => {
     
     if(counterSection) counterObserver.observe(counterSection);
 
-    // --- 6. FAQ Accordion (Accessibility Improved) ---
+    // --- 6. FAQ Accordion ---
     const faqItems = document.querySelectorAll('.faq-question');
     
     faqItems.forEach(item => {
         item.addEventListener('click', () => {
             const isActive = item.classList.contains('active');
             
-            // Close all answers
             faqItems.forEach(btn => {
                 btn.classList.remove('active');
                 btn.setAttribute('aria-expanded', 'false');
                 btn.nextElementSibling.style.maxHeight = null;
             });
 
-            // If it wasn't active, open it
             if (!isActive) {
                 item.classList.add('active');
                 item.setAttribute('aria-expanded', 'true');
@@ -169,7 +164,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
-    // Sync Range and Number Inputs
     const syncInputs = (range, input) => {
         range.addEventListener('input', () => {
             input.value = range.value;
@@ -185,98 +179,36 @@ document.addEventListener('DOMContentLoaded', () => {
     syncInputs(rateRange, rateInput);
     syncInputs(tenureRange, tenureInput);
 
-    // Initial calculation setup
     calculateEMI();
 
-    // --- 8. Modular Google Sheets Ready Lead Form Submission ---
+    // --- 8. Lead Form Submission ---
     const applyForm = document.getElementById('loan-form');
     const formMsg = document.getElementById('form-message');
     const submitBtn = document.getElementById('submit-btn');
-
-    // To connect to Google Sheets later:
-    // 1. Create a Google Apps Script Web App
-    // 2. Replace 'YOUR_GOOGLE_SCRIPT_URL_HERE' with the generated Web App URL
-    const googleAppScriptURL = 'YOUR_GOOGLE_SCRIPT_URL_HERE';
-
-    const submitLeadData = async (formData) => {
-        // This function handles the actual data transmission.
-        // It uses FormData, which seamlessly integrates with Google Apps Script (doPost).
-        
-        try {
-            /* 
-            // Uncomment this block when your Google Sheet Web App is ready:
-            
-            const response = await fetch(googleAppScriptURL, {
-                method: 'POST',
-                body: formData
-            });
-            const result = await response.json();
-            
-            if(result.result === 'success') {
-                return true;
-            } else {
-                throw new Error('Script returned error');
-            }
-            */
-            
-            // Simulating a successful network request for now
-            return new Promise(resolve => setTimeout(() => resolve(true), 1500));
-        } catch (error) {
-            console.error("Form Submission Error: ", error);
-            return false;
-        }
-    };
 
     if(applyForm) {
         applyForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             
-            // Basic UI loading state
             const originalText = submitBtn.textContent;
             submitBtn.textContent = "Submitting securely...";
             submitBtn.disabled = true;
             formMsg.textContent = "";
 
-            // Collect form data
-            const formData = new FormData(applyForm);
-            
-            // Optional: You can do extra validation here if HTML5 isn't enough
-            const mobile = formData.get('phone');
-            if(mobile.length !== 10) {
-                formMsg.textContent = "Please enter a valid 10-digit mobile number.";
-                formMsg.style.color = "red";
+            setTimeout(() => {
+                formMsg.textContent = "Application Submitted Successfully! Our team will contact you soon.";
+                formMsg.style.color = "#25D366"; 
+                applyForm.reset();
                 submitBtn.textContent = originalText;
                 submitBtn.disabled = false;
-                return;
-            }
-
-            // Transmit Data
-            const success = await submitLeadData(formData);
-
-            if (success) {
-                formMsg.textContent = "Application Submitted Successfully! Our team will contact you soon.";
-                formMsg.style.color = "#25D366"; // Success green
-                applyForm.reset();
-            } else {
-                formMsg.textContent = "Something went wrong. Please try calling us directly.";
-                formMsg.style.color = "red";
-            }
-
-            // Restore button state
-            submitBtn.textContent = originalText;
-            submitBtn.disabled = false;
-            
-            // Clear success message after 5 seconds
-            setTimeout(() => { 
-                if(formMsg.style.color === "rgb(37, 211, 102)" || formMsg.style.color === "#25D366") {
-                    formMsg.textContent = ""; 
-                }
-            }, 5000);
+                
+                setTimeout(() => { formMsg.textContent = ""; }, 5000);
+            }, 1500);
         });
     }
 });
 
-// --- 9. Eligibility Checker Logic (Global Function for onclick) ---
+// --- 9. Eligibility Checker Logic ---
 window.calculateEligibility = function() {
     const income = parseFloat(document.getElementById('elig-income').value);
     const existingEmi = parseFloat(document.getElementById('elig-emi').value) || 0;
@@ -290,7 +222,6 @@ window.calculateEligibility = function() {
         return;
     }
 
-    // Standard Bank Logic: Max EMI capacity is usually 50%-60% of net income
     const maxEmiCapacity = (income * 0.5) - existingEmi;
 
     if (maxEmiCapacity <= 0) {
@@ -300,8 +231,6 @@ window.calculateEligibility = function() {
         return;
     }
 
-    // Reverse EMI formula to find Principal (Loan Amount)
-    // P = (EMI * ( (1+r)^n - 1 )) / ( r * (1+r)^n )
     const r = (rate / 12) / 100;
     const n = tenure * 12;
     const mathPow = Math.pow(1 + r, n);
