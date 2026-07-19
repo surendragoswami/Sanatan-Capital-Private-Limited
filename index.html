@@ -17,9 +17,19 @@
     <!-- Header & Navigation -->
     <header id="header" class="header" role="banner">
         <nav class="navbar container" aria-label="Main Navigation">
+            <!-- Bada Logo -->
             <a href="#" class="logo" aria-label="Sanatan Capital Home">
-                <img src="assets/logo-horizontal.png" alt="Sanatan Capital Logo" onerror="this.src='assets/logo.png'; this.alt='Sanatan Capital';">
+                <img src="assets/logo-horizontal.png" alt="Sanatan Capital" onerror="this.src='assets/logo.png';">
             </a>
+            
+            <!-- Mobile Action Button & Hamburger -->
+            <div class="nav-actions">
+                <a href="#apply-loan" class="btn btn-primary btn-sm head-apply-btn">Apply / आवेदन</a>
+                <div class="hamburger" aria-label="Toggle Navigation Menu" tabindex="0">
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </div>
+            </div>
+
             <div class="nav-links" role="navigation">
                 <a href="#home">Home</a>
                 <a href="#about">About</a>
@@ -27,18 +37,10 @@
                 <a href="#property-solutions">Properties</a>
                 <a href="#contact">Contact</a>
                 
-                <!-- Header Buttons (Bilingual) -->
-                <div style="display: flex; gap: 10px; align-items: center;">
-                    <a href="#apply-loan" class="btn btn-primary" style="padding: 0.5rem 1rem; font-size: 0.9rem; line-height: 1.2;">
-                        Apply Loan <br><span style="font-size: 0.75rem; font-weight: normal;">लोन अप्लाई करें</span>
-                    </a>
-                    <a href="#dsa-partner" class="btn btn-secondary" style="padding: 0.5rem 1rem; font-size: 0.9rem; line-height: 1.2;">
-                        Connect as DSA <br><span style="font-size: 0.75rem; font-weight: normal;">पार्टनर बनें</span>
-                    </a>
+                <div class="desktop-header-btns">
+                    <a href="#apply-loan" class="btn btn-primary">Apply Loan / लोन लें</a>
+                    <a href="#dsa-partner" class="btn btn-secondary">Join DSA / पार्टनर बनें</a>
                 </div>
-            </div>
-            <div class="hamburger" aria-label="Toggle Navigation Menu" tabindex="0" aria-expanded="false">
-                <i class="fas fa-bars" aria-hidden="true"></i>
             </div>
         </nav>
     </header>
@@ -48,14 +50,14 @@
         <div class="container hero-container">
             <div class="hero-content reveal-left">
                 <div class="badge">Premium Loan Distribution Partner</div>
-                <h1>Empowering Your Financial Future</h1>
+                <h1>सही लोन, आपके सपनो के लिए</h1>
                 <p class="tagline text-secondary mb-4" style="font-size: 1.25rem; font-weight: 600;">आपका विश्वास हमारा संकल्प</p>
-                <p>Sanatan Capital connects you with top RBI-approved partner Banks and NBFCs to secure the best loan and property offers tailored to your needs. Fast processing, transparent terms, and dedicated support.</p>
+                <p>Sanatan Capital भारत के टॉप बैंकों और NBFCs के साथ जुड़कर आपको सबसे कम ब्याज दर पर होम लोन, बिज़नेस लोन और प्रॉपर्टी फाइनेंस उपलब्ध कराता है। तेज प्रोसेसिंग और पूरी पारदर्शिता।</p>
                 <div class="hero-buttons">
-                    <a href="#apply-loan" class="btn btn-primary">Apply Loan / लोन लें <i class="fas fa-arrow-right"></i></a>
-                    <a href="#dsa-partner" class="btn btn-outline">Join DSA / पार्टनर बनें</a>
+                    <a href="#apply-loan" class="btn btn-primary">Apply Loan / लोन आवेदन करें <i class="fas fa-arrow-right"></i></a>
+                    <a href="#dsa-partner" class="btn btn-outline">DSA पार्टनर बनें</a>
                 </div>
-                <p class="disclaimer"><i class="fas fa-shield-alt"></i> We are a DSA company. Loans are processed & disbursed by our partner financial institutions.</p>
+                <p class="disclaimer"><i class="fas fa-shield-alt"></i> We are a DSA company. Loans are processed by our partner banks.</p>
             </div>
             <div class="hero-image reveal-right">
                 <img src="assets/hero%20illustration.png" alt="Financial Growth Illustration" loading="eager" onerror="this.style.display='none'">
@@ -63,7 +65,7 @@
         </div>
     </section>
 
-    <!-- About Section -->
+    <!-- About Section (English mostly for Professional Look) -->
     <section id="about" class="about section bg-light">
         <div class="container about-container">
             <div class="about-image reveal-left">
@@ -83,84 +85,80 @@
         </div>
     </section>
 
-    <!-- General Loan Products -->
+    <!-- General Loan Products (Bilingual) -->
     <section id="products" class="products section">
         <div class="container">
             <div class="section-header reveal-up">
                 <h4 class="section-subtitle">Our Offerings</h4>
-                <h2 class="section-title">General & Business Loans</h2>
+                <h2 class="section-title">Loan Products / लोन सेवाएं</h2>
                 <p>₹10,000 से ₹1 करोड़ तक - हर जरूरत के लिए आसान लोन</p>
             </div>
             <div class="product-grid">
                 <div class="card product-card reveal-up">
                     <div class="card-icon"><i class="fas fa-user"></i></div>
-                    <h3>Personal Loan</h3>
-                    <p>व्यक्तिगत आवश्यकताओं को पूरा करने के लिए तुरंत लोन।</p>
+                    <h3>Personal Loan<br><span style="font-size:1rem; color:#666;">पर्सनल लोन</span></h3>
+                    <p>व्यक्तिगत आवश्यकताओं (मेडिकल, शादी, शिक्षा) को पूरा करने के लिए तुरंत और आसान लोन।</p>
                 </div>
                 <div class="card product-card reveal-up" style="transition-delay: 0.1s;">
                     <div class="card-icon"><i class="fas fa-home"></i></div>
-                    <h3>Home Loan</h3>
-                    <p>घर खरीदने, बनाने या रेनोवेशन के लिए आसान फाइनेंस।</p>
+                    <h3>Home Loan<br><span style="font-size:1rem; color:#666;">होम लोन</span></h3>
+                    <p>अपना नया घर खरीदने, बनाने या रेनोवेशन (मरम्मत) के लिए आसान फाइनेंस सुविधा।</p>
                 </div>
                 <div class="card product-card reveal-up" style="transition-delay: 0.2s;">
                     <div class="card-icon"><i class="fas fa-briefcase"></i></div>
-                    <h3>Business & MSME Loan</h3>
-                    <p>छोटे, मध्यम या बड़े व्यवसाय के लिए बिना गारंटी लोन।</p>
+                    <h3>Business & MSME Loan<br><span style="font-size:1rem; color:#666;">बिज़नेस लोन</span></h3>
+                    <p>दुकान, फैक्ट्री या छोटे-बड़े व्यवसाय को बढ़ाने के लिए बिना गारंटी (Unsecured) लोन।</p>
                 </div>
                 <div class="card product-card reveal-up" style="transition-delay: 0.3s;">
                     <div class="card-icon"><i class="fas fa-building"></i></div>
-                    <h3>Loan Against Property</h3>
-                    <p>अपनी प्रॉपर्टी को गिरवी रखकर बड़ा लोन पाएं।</p>
+                    <h3>Loan Against Property<br><span style="font-size:1rem; color:#666;">प्रॉपर्टी लोन</span></h3>
+                    <p>अपनी आवासीय या कमर्शियल प्रॉपर्टी को गिरवी रखकर बड़े अमाउंट का लोन पाएं।</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Vehicle Loan Section -->
+    <!-- Vehicle Loan Section (Bilingual) -->
     <section id="vehicle-loans" class="section bg-light">
         <div class="container">
             <div class="section-header reveal-up">
                 <h4 class="section-subtitle">Wheels of Dream</h4>
-                <h2 class="section-title">सपनों का वाहन घर ले आएं</h2>
+                <h2 class="section-title">Vehicle Loan / वाहन लोन</h2>
+                <p>आसान और तेज़ लोन प्रक्रिया के साथ अपने सपनों का वाहन घर ले आएं</p>
             </div>
             <div class="product-grid">
                 <div class="card product-card reveal-up">
                     <div class="card-icon"><i class="fas fa-car-side"></i></div>
-                    <h3>Four-Wheeler Loan</h3>
-                    <p>नई या पुरानी कार पर तुरंत फाइनेंस।</p>
+                    <h3>Car / Four-Wheeler<br><span style="font-size:1rem; color:#666;">कार लोन</span></h3>
+                    <p>नई या पुरानी (Used) कार पर तुरंत फाइनेंस और लचीली EMI भुगतान सुविधा।</p>
                 </div>
                 <div class="card product-card reveal-up" style="transition-delay: 0.1s;">
                     <div class="card-icon"><i class="fas fa-tractor"></i></div>
-                    <h3>Tractor Loan</h3>
-                    <p>कृषि कार्य के लिए ट्रैक्टर पर आसान लोन।</p>
+                    <h3>Tractor & Commercial<br><span style="font-size:1rem; color:#666;">ट्रैक्टर लोन</span></h3>
+                    <p>कृषि कार्य के लिए ट्रैक्टर और कमर्शियल वाहनों पर आसान लोन और न्यूनतम दस्तावेज।</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Property Solutions Section -->
+    <!-- Property Solutions Section (Bilingual) -->
     <section id="property-solutions" class="section">
         <div class="container">
             <div class="section-header reveal-up">
                 <h4 class="section-subtitle">Real Estate Expertise</h4>
-                <h2 class="section-title">Property का Complete Solution</h2>
+                <h2 class="section-title">Property Solutions / प्रॉपर्टी समाधान</h2>
                 <p>आपकी पसंद, हमारी जिम्मेदारी | PMAY सब्सिडी उपलब्ध</p>
             </div>
             <div class="product-grid">
                 <div class="card product-card reveal-up">
                     <div class="card-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>प्रॉपर्टी खरीदें / बेचें</h3>
-                    <p>बेहतरीन लोकेशन पर निवेश करें या अपनी प्रॉपर्टी सही ग्राहक तक बेहतर मूल्य पर बेचें।</p>
+                    <h3>Buy & Sell Property<br><span style="font-size:1rem; color:#666;">प्रॉपर्टी खरीदें / बेचें</span></h3>
+                    <p>बेहतरीन लोकेशन पर घर/प्लॉट खरीदें या अपनी प्रॉपर्टी सही ग्राहक तक बेहतर मूल्य पर बेचें।</p>
                 </div>
                 <div class="card product-card reveal-up" style="transition-delay: 0.1s;">
                     <div class="card-icon"><i class="fas fa-hard-hat"></i></div>
-                    <h3>निर्माण कार्य (Construction)</h3>
-                    <p>आपके स्वीकृत नक्शे के अनुसार गुणवत्तापूर्ण निर्माण कार्य, समय पर पूरा।</p>
-                </div>
-                <div class="card product-card reveal-up" style="transition-delay: 0.2s;">
-                    <div class="card-icon"><i class="fas fa-comments"></i></div>
-                    <h3>प्रॉपर्टी परामर्श</h3>
-                    <p>खरीदने, बेचने और निवेश के लिए हमारे अनुभवी एक्सपर्ट्स से निःशुल्क सलाह लें।</p>
+                    <h3>Construction Work<br><span style="font-size:1rem; color:#666;">निर्माण कार्य</span></h3>
+                    <p>आपके स्वीकृत नक्शे के अनुसार गुणवत्तापूर्ण (Quality) निर्माण कार्य, समय पर पूरा।</p>
                 </div>
             </div>
         </div>
@@ -171,7 +169,7 @@
         <div class="container apply-container" style="grid-template-columns: 1fr;">
             <div class="apply-text reveal-up text-center mb-4">
                 <h4 class="section-subtitle text-secondary">Apply Now</h4>
-                <h2 class="section-title text-white">Service Request / सेवा अनुरोध</h2>
+                <h2 class="section-title text-white">Service Request / सेवा के लिए आवेदन करें</h2>
                 <p style="max-width: 600px; margin: 0 auto;">क्या आपको लोन या प्रॉपर्टी से जुड़ी सेवा चाहिए? कृपया यहाँ अपनी डिटेल्स भरें और हमारी टीम 24 घंटे के अंदर आपसे संपर्क करेगी।</p>
             </div>
             <div class="apply-form-wrapper reveal-up" style="max-width: 800px; margin: 0 auto; width: 100%;">
@@ -189,7 +187,7 @@
     <section id="dsa-partner" class="section bg-primary text-white" style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
         <div class="container text-center reveal-up">
             <h4 class="section-subtitle text-white" style="color: #FFF !important; opacity: 0.9;">Join Our Partner Network</h4>
-            <h2 class="section-title text-white">Connect with Sanatan Capital as a DSA Partner</h2>
+            <h2 class="section-title text-white">Connect as a DSA / DSA पार्टनर बनें</h2>
             <p class="mb-4" style="font-size: 1.1rem; max-width: 800px; margin: 0 auto;">
                 हमारे प्रीमियम DSA नेटवर्क का हिस्सा बनें और शानदार इंसेंटिव (Incentive) कमाएं। आसान रजिस्ट्रेशन और 100% पारदर्शिता।
             </p>
@@ -197,18 +195,18 @@
             <div class="glass-form mx-auto" style="background: rgba(255, 255, 255, 0.95); color: var(--text-dark); max-width: 800px; padding: 3rem; border-radius: var(--radius-xl); box-shadow: var(--shadow-xl); margin-top: 2rem;">
                  <!-- GOOGLE FORM (DSA) WILL BE EMBEDDED HERE -->
                  <i class="fas fa-handshake text-secondary" style="font-size: 3rem; margin-bottom: 1rem;"></i>
-                 <h3>DSA Partner Registration / पार्टनर रजिस्ट्रेशन</h3>
+                 <h3>Partner Registration / पार्टनर रजिस्ट्रेशन</h3>
                  <p style="color: var(--text-light);">(Google Form for DSA will appear here once finalized)</p>
             </div>
         </div>
     </section>
 
-    <!-- Expanded Contact Section (Removed QR) -->
+    <!-- Contact Section -->
     <section id="contact" class="contact section bg-light">
         <div class="container">
             <div class="section-header text-center reveal-up">
                 <h4 class="section-subtitle">Get In Touch</h4>
-                <h2 class="section-title">We're Here to Help</h2>
+                <h2 class="section-title">संपर्क करें (Contact Us)</h2>
             </div>
             
             <div class="contact-container" style="display: flex; justify-content: center;">
@@ -252,8 +250,8 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About Us</a></li>
                     <li><a href="#products">Loan Products</a></li>
-                    <li><a href="#apply-loan">Apply Loan</a></li>
-                    <li><a href="#dsa-partner">Connect as DSA</a></li>
+                    <li><a href="#apply-loan">Apply / आवेदन</a></li>
+                    <li><a href="#dsa-partner">DSA Partner</a></li>
                 </ul>
             </div>
         </div>
