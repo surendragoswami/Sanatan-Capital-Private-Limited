@@ -858,11 +858,14 @@ h1, h2, h3, h4, h5, h6 {
 /* =========================================
    Floating Buttons & Utility
    ========================================= */
-.float-btn {
+
+float-btn {
     position: fixed;
-    width: 60px;
-    height: 60px;
+    width: 55px;
+    height: 55px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
     border-radius: 50%;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -989,9 +992,9 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .hero-buttons { flex-direction: column; width: 100%; }
     .hero-buttons .btn { width: 100%; }
-    .float-call { bottom: 20px; left: auto; right: 90px; }
-    .float-whatsapp { bottom: 20px; left: 20px; }
-}=========================== */
+    .float-call { bottom: 25px; left: auto; right: 20px; }
+    .float-whatsapp { bottom: 25px; left: 20px; }
+}
 
 @media(max-width:992px){
 
