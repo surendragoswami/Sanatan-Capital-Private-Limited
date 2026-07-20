@@ -74,7 +74,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--text-dark); font-weight: 700; line-height:
 .btn-outline:hover { background-color: var(--primary); color: var(--text-white); }
 
 /* =========================================
-   Header & Navbar (LOGO FIX & MOBILE BUTTON)
+   Header & Navbar
    ========================================= */
 .header {
     position: fixed; top: 0; left: 0; width: 100%;
@@ -85,11 +85,29 @@ h1, h2, h3, h4, h5, h6 { color: var(--text-dark); font-weight: 700; line-height:
 
 .header.scrolled { box-shadow: var(--shadow-md); }
 
-.navbar { display: flex; justify-content: space-between; align-items: center; height: 80px; }
+.navbar { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    height: 90px; /* डेस्कटॉप हेडर की चौड़ाई थोड़ी बढ़ाई है */
+}
 
-/* Increased Logo Size */
-.logo { display: flex; align-items: center; }
-.logo img { height: 60px; max-width: 250px; }
+/* 🔴 DESKTOP LOGO FIX 🔴 */
+.logo { 
+    display: flex; 
+    align-items: center; 
+    height: 100%;
+    overflow: hidden; 
+}
+.logo img { 
+    height: 80px; /* ऊँचाई 60px से 80px कर दी है */
+    width: auto;
+    max-width: 400px; /* चौड़ाई 250px से 400px कर दी है */
+    object-fit: contain;
+    object-position: left center;
+    transform: scale(1.6); /* यह इमेज की खाली जगह काटकर नाम को बड़ा कर देगा */
+    transform-origin: left center;
+}
 
 /* Nav Actions (Button + Hamburger) */
 .nav-actions { display: flex; align-items: center; gap: 1rem; }
