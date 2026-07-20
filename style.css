@@ -235,14 +235,23 @@ h3 { font-size: 1.5rem; margin-bottom: 0.5rem; }
     .feature-list { display: inline-block; text-align: left; }
 }
 
-@media (max-width: 768px) {
-    .navbar { height: 70px; }
-    
-    /* Mobile Logo Fix */
-    .logo { min-width: auto; }
+    /* 🔴 MASTER FIX: लोगो को 180% ज़बरदस्ती बड़ा किया है 🔴 */
     .logo img { 
-        height: 60px; 
-        transform: scale(2.2) translateX(15px); /* मोबाइल पर लेफ्ट साइड की गैप को कवर करने के लिए */
+        width: 100%; 
+        height: 100%; 
+        object-fit: contain;
+        object-position: left center;
+        transform: scale(1.8); /* यह लोगो की खाली जगह काटकर नाम को एकदम बड़ा कर देगा */
+        transform-origin: left center;
+        max-width: none; 
+    } 
+    
+    /* Action Area: Button + Menu Icon */
+    .nav-actions { 
+        display: flex; 
+        align-items: center; 
+        gap: 10px; 
+        z-index: 10;
     }
 
     .hamburger { display: block; }
