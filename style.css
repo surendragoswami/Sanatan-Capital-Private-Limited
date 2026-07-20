@@ -92,20 +92,19 @@ h1, h2, h3, h4, h5, h6 { color: var(--text-dark); font-weight: 700; line-height:
     height: 90px; /* डेस्कटॉप हेडर की चौड़ाई थोड़ी बढ़ाई है */
 }
 
-/* 🔴 DESKTOP LOGO FIX (WITHOUT PUSHING HOME BUTTON) 🔴 */
+/* 🔴 DESKTOP LOGO FINAL FIX (FILLING THE GAP) 🔴 */
 .logo { 
     display: flex; 
     align-items: center; 
     height: 100%;
-    /* यहाँ से min-width और overflow दोनों हटा दिए गए हैं ताकि Home बटन न खिसके और लोगो न कटे */
 }
 
 .logo img { 
-    height: 75px; /* ऊँचाई को थोड़ा बैलेंस किया है */
+    height: 75px; 
     width: auto;
     object-fit: contain;
     object-position: left center;
-    transform: scale(1.5); /* 1.8 से कम करके 1.5 किया है ताकि यह Home बटन के ऊपर न चढ़े, बस वहाँ तक पहुँचे */
+    transform: scale(2.4); /* 👈 यहाँ हमने ज़ूम को 1.5 से बढ़ाकर 2.4 कर दिया है */
     transform-origin: left center;
 }
 
