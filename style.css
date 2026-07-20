@@ -92,11 +92,12 @@ h1, h2, h3, h4, h5, h6 { color: var(--text-dark); font-weight: 700; line-height:
     height: 90px; /* डेस्कटॉप हेडर की चौड़ाई थोड़ी बढ़ाई है */
 }
 
-/* 🔴 DESKTOP LOGO FINAL FIX (FILLING THE GAP) 🔴 */
+/* 🔴 DESKTOP LOGO FIX (FOR ALL SCREENS) 🔴 */
 .logo { 
     display: flex; 
     align-items: center; 
     height: 100%;
+    min-width: 250px; /* यह लोगो के लिए एक सुरक्षित जगह बनाएगा ताकि मेनू इस पर न चढ़े */
 }
 
 .logo img { 
@@ -104,8 +105,21 @@ h1, h2, h3, h4, h5, h6 { color: var(--text-dark); font-weight: 700; line-height:
     width: auto;
     object-fit: contain;
     object-position: left center;
-    transform: scale(2.4); /* 👈 यहाँ हमने ज़ूम को 1.5 से बढ़ाकर 2.4 कर दिया है */
+    transform: scale(2.2); /* बड़ी स्क्रीन के लिए ज़ूम */
     transform-origin: left center;
+}
+
+/* 🔴 Mobile Desktop Mode / Tablet Fix 🔴 */
+@media (max-width: 1100px) {
+    .logo {
+        min-width: 180px; /* छोटी स्क्रीन पर सुरक्षित जगह थोड़ी कम की */
+    }
+    .logo img {
+        transform: scale(1.6); /* छोटी स्क्रीन पर ज़ूम कम कर दिया ताकि overlap न हो */
+    }
+    .nav-links {
+        gap: 1rem; /* मेनू के बीच की जगह थोड़ी कम की ताकि सब अच्छे से फिट हो जाए */
+    }
 }
 
 /* Nav Actions (Button + Hamburger) */
