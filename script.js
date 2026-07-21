@@ -165,6 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const syncInputs = (range, input) => {
+        if (!range || !input) return; // Prevent errors if EMI calculator isn't on the page
         range.addEventListener('input', () => {
             input.value = range.value;
             calculateEMI();
@@ -179,33 +180,11 @@ document.addEventListener('DOMContentLoaded', () => {
     syncInputs(rateRange, rateInput);
     syncInputs(tenureRange, tenureInput);
 
-    calculateEMI();
-
-    // --- 8. Lead Form Submission ---
-    const applyForm = document.getElementById('loan-form');
-    const formMsg = document.getElementById('form-message');
-    const submitBtn = document.getElementById('submit-btn');
-
-    if(applyForm) {
-        applyForm.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            
-            const originalText = submitBtn.textContent;
-            submitBtn.textContent = "Submitting securely...";
-            submitBtn.disabled = true;
-            formMsg.textContent = "";
-
-            setTimeout(() => {
-                formMsg.textContent = "Application Submitted Successfully! Our team will contact you soon.";
-                formMsg.style.color = "#25D366"; 
-                applyForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                
-                setTimeout(() => { formMsg.textContent = ""; }, 5000);
-            }, 1500);
-        });
+    if(amtRange && rateRange && tenureRange) {
+        calculateEMI();
     }
+
+    // CHANGED: Removed manual Form Submission Script here because Tally.so now handles it automatically via the embedded iframes.
 });
 
 // --- 9. Eligibility Checker Logic ---
