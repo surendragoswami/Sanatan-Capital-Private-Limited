@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const syncInputs = (range, input) => {
-        if (!range || !input) return; // Prevent errors if EMI calculator isn't on the page
+        if (!range || !input) return;
         range.addEventListener('input', () => {
             input.value = range.value;
             calculateEMI();
@@ -184,7 +184,25 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateEMI();
     }
 
-    // CHANGED: Removed manual Form Submission Script here because Tally.so now handles it automatically via the embedded iframes.
+    // --- 10. INTERCEPT TALLY FORM SUBMISSION (NEW JUGAAAD) ---
+    window.addEventListener('message', (e) => {
+        try {
+            // Tally form submit hone par ek hidden message bhejta hai
+            const eventData = JSON.parse(e.data);
+            
+            if (eventData.event === 'Tally.FormSubmitted') {
+                // Form submit hote hi Sanatan Capital ka popup message
+                alert("✅ Sanatan Capital: आपका फॉर्म सफलतापूर्वक जमा हो गया है। हमारी टीम 24 घंटे के अंदर आपसे संपर्क करेगी।\n\nअब आपको सीधा WhatsApp पर भेजा जा रहा है...");
+                
+                // Seedha WhatsApp par bhejne ka code (Kripya apna number verify kar lein)
+                const waMessage = encodeURIComponent("Hello Sanatan Capital, मैंने अभी आपकी वेबसाइट पर फॉर्म सबमिट किया है। कृपया मुझसे संपर्क करें।");
+                window.location.href = `https://wa.me/917023654630?text=${waMessage}`;
+            }
+        } catch (error) {
+            // Agar message Tally ka nahi hai, to ignore karein
+        }
+    });
+
 });
 
 // --- 9. Eligibility Checker Logic ---
