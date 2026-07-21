@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         calculateEMI();
     }
 
-    // --- 10. INTERCEPT TALLY FORM SUBMISSION (NEW JUGAAAD) ---
+        // --- 10. INTERCEPT TALLY FORM SUBMISSION (NEW JUGAAAD) ---
     window.addEventListener('message', (e) => {
         try {
             // Tally form submit hone par ek hidden message bhejta hai
@@ -194,14 +194,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 // Form submit hote hi Sanatan Capital ka popup message
                 alert("✅ Sanatan Capital: आपका फॉर्म सफलतापूर्वक जमा हो गया है। हमारी टीम 24 घंटे के अंदर आपसे संपर्क करेगी।\n\nअब आपको सीधा WhatsApp पर भेजा जा रहा है...");
                 
-                // Seedha WhatsApp par bhejne ka code (Kripya apna number verify kar lein)
-                const waMessage = encodeURIComponent("Hello Sanatan Capital, मैंने अभी आपकी वेबसाइट पर फॉर्म सबमिट किया है। कृपया मुझसे संपर्क करें।");
-                window.location.href = `https://wa.me/917023654630?text=${waMessage}`;
+                // Seedha WhatsApp par bhejne ka code (Message)
+                const waMessage = encodeURIComponent("Hello Sanatan Capital, मैंने अभी आपकी वेबसाइट पर लोन/प्रॉपर्टी के लिए फॉर्म सबमिट किया है। कृपया मुझसे संपर्क करें।");
+                
+                // CHANGED: Number updated to 9664223901
+                window.location.href = `https://wa.me/919664223901?text=${waMessage}`;
             }
         } catch (error) {
             // Agar message Tally ka nahi hai, to ignore karein
         }
     });
+
 
 });
 
