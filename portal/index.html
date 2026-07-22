@@ -13,23 +13,23 @@
 
     <div class="portal-container">
         
-        <!-- Left Side: Premium Branding & Info -->
+        <!-- Left Side: Clean Branding & Info -->
         <div class="branding-section">
             
-            <!-- Company Logo (Fixed with White Box for visibility) -->
-            <div class="logo-container">
-                <img src="https://sanatancapital.github.io/Sanatan-Capital-Private-Limited/assets/logo-horizontal.png" alt="Sanatan Capital Logo" class="brand-logo">
+            <!-- Company Logo (Directly placed, no white box needed now) -->
+            <div class="logo-wrapper">
+                <img src="../assets/logo-horizontal.png" alt="Sanatan Capital Logo" class="brand-logo" onerror="this.onerror=null; this.src='https://sanatancapital.github.io/Sanatan-Capital-Private-Limited/assets/logo-horizontal.png';">
             </div>
 
             <!-- Incentive Badge -->
             <div class="premium-badge">
-                <i class="fas fa-crown"></i> Highest Incentives in the Market 🚀
+                <i class="fas fa-crown"></i> Premium DSA Partner Program 🚀
             </div>
 
             <h2 class="main-heading">Partner With Us &<br><span class="highlight">Grow Your Income</span></h2>
-            <p class="tagline">Become a Sanatan Capital DSA and earn by selling premium loan products.</p>
+            <p class="tagline">Become a Sanatan Capital DSA. Simple registration, fast approvals, and zero investment.</p>
             
-            <!-- Attractive Loan Products List -->
+            <!-- Attractive Loan Products List (Light Theme) -->
             <ul class="benefits-list">
                 <li>
                     <div class="icon-box"><i class="fas fa-money-bill-wave"></i></div>
@@ -49,7 +49,7 @@
                     <div class="icon-box"><i class="fas fa-home"></i></div>
                     <div class="text-box">
                         <strong>Property & Home</strong>
-                        <span>Home Loan & Loan Against Property (LAP)</span>
+                        <span>Home Loan & Loan Against Property</span>
                     </div>
                 </li>
                 <li>
@@ -62,35 +62,13 @@
             </ul>
         </div>
 
-        <!-- Right Side: Forms -->
+        <!-- Right Side: Forms (Focused Area) -->
         <div class="form-section">
             
-            <!-- 1. LOGIN FORM -->
-            <div id="login-box" class="form-box active">
-                <h3>Partner Login <br><span class="hindi-text">पार्टनर लॉग-इन</span></h3>
-                <p class="sub-text">Welcome back! Please enter your details to access dashboard.</p>
-                
-                <form id="loginForm">
-                    <div class="input-group">
-                        <label>Mobile Number / मोबाइल नंबर</label>
-                        <input type="text" placeholder="Enter registered mobile no." required>
-                    </div>
-                    <div class="input-group">
-                        <label>Password / पासवर्ड</label>
-                        <input type="password" placeholder="Enter your password" required>
-                    </div>
-                    <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
-                        <a href="#" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 600;">Forgot Password?</a>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login to Dashboard <i class="fas fa-arrow-right"></i></button>
-                </form>
-                <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register')">Register as DSA</a></p>
-            </div>
-
-            <!-- 2. REGISTRATION FORM -->
-            <div id="register-box" class="form-box">
+            <!-- 1. REGISTRATION FORM (Now Default & Centered) -->
+            <div id="register-box" class="form-box active">
                 <h3>DSA Registration <br><span class="hindi-text">नया DSA पंजीकरण</span></h3>
-                <p class="sub-text">Create your account to partner with Sanatan Capital.</p>
+                <p class="sub-text">Create your account in 30 seconds. (KYC will be done inside the dashboard).</p>
                 
                 <form id="registerForm">
                     <div class="input-group">
@@ -108,12 +86,38 @@
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Create Password / अपना पासवर्ड बनाएं</label>
+                        <label>Create Password / पासवर्ड बनाएं</label>
                         <input type="password" placeholder="Set a strong password" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Create Account <i class="fas fa-user-plus"></i></button>
                 </form>
-                <p class="switch-form">Already a partner? <a href="#" onclick="switchForm('login')">Login here</a></p>
+                <div class="form-footer">
+                    <p class="switch-form">Already a partner? <a href="#" onclick="switchForm('login')">Login here</a></p>
+                </div>
+            </div>
+
+            <!-- 2. LOGIN FORM (Hidden by default) -->
+            <div id="login-box" class="form-box">
+                <h3>Partner Login <br><span class="hindi-text">पार्टनर लॉग-इन</span></h3>
+                <p class="sub-text">Welcome back! Please enter your details to access dashboard.</p>
+                
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label>Mobile Number / मोबाइल नंबर</label>
+                        <input type="text" placeholder="Enter registered mobile no." required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password / पासवर्ड</label>
+                        <input type="password" placeholder="Enter your password" required>
+                    </div>
+                    <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login to Dashboard <i class="fas fa-sign-in-alt"></i></button>
+                </form>
+                <div class="form-footer">
+                    <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register')">Register as DSA</a></p>
+                </div>
             </div>
 
         </div>
