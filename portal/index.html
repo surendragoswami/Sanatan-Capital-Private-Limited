@@ -82,6 +82,25 @@
                 </div>
             </div>
 
+                        <!-- 3. OTP VERIFICATION FORM (Hidden) -->
+            <div id="otp-box" class="form-box">
+                <h3>Verify OTP <span class="hindi-text">OTP दर्ज करें</span></h3>
+                <p class="sub-text">Please enter the 6-digit OTP sent to your Mobile and Email.</p>
+                
+                <form id="otpForm">
+                    <div class="input-group">
+                        <label>Enter OTP / ओटीपी <span style="color: red;">*</span></label>
+                        <input type="text" placeholder="XXXXXX" maxlength="6" pattern="\d{6}" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Verify & Register <i class="fas fa-check-circle"></i></button>
+                </form>
+                <div class="form-footer">
+                    <p class="switch-form">Didn't receive code? <a href="#" onclick="alert('New OTP Sent Successfully!')">Resend OTP</a></p>
+                    <p class="switch-form" style="margin-top: 15px;"><a href="#" onclick="switchForm('register')"><i class="fas fa-arrow-left"></i> Back to Registration</a></p>
+                </div>
+            </div>
+
+
         </div>
 
         <!-- Attractive Loan Products Grid -->
