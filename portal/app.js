@@ -15,9 +15,10 @@ function switchForm(formName) {
 // Login Demo Logic
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert("✅ Login Successful!\n\nRedirecting to Sanatan Capital Dashboard...");
-    // Future: Here we will redirect to dashboard.html
+    // Redirecting to Dashboard
+    window.location.href = "dashboard.html"; 
 });
+
 
 // Registration Demo Logic
 document.getElementById('registerForm').addEventListener('submit', function(e) {
