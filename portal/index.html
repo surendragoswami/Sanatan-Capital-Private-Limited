@@ -5,26 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DSA Portal - Sanatan Capital</title>
     <!-- Google Fonts & Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="portal-container">
-        <!-- Left Side: Branding & Info -->
+        <!-- Left Side: Premium Branding -->
         <div class="branding-section">
-            <div class="brand-content">
-                <h1 class="logo-text"><i class="fas fa-chart-line"></i> Sanatan Capital</h1>
-                <p class="tagline">-- आपका विश्वास, हमारा संकल्प --</p>
-                <h2 class="main-heading">Join Our Premium<br><span class="highlight">DSA Network</span></h2>
-                <ul class="benefits-list">
-                    <li><i class="fas fa-check-circle"></i> Zero Investment / ज़ीरो इन्वेस्टमेंट</li>
-                    <li><i class="fas fa-check-circle"></i> High Payouts / शानदार कमीशन</li>
-                    <li><i class="fas fa-check-circle"></i> 100% Transparency / पूरी पारदर्शिता</li>
-                    <li><i class="fas fa-check-circle"></i> Instant Activation / तुरंत आईडी चालू</li>
-                </ul>
+            <h1 class="logo-text"><i class="fas fa-chart-line"></i> Sanatan Capital</h1>
+            <p class="tagline">-- आपका विश्वास, हमारा संकल्प --</p>
+            
+            <!-- NEW: Highest Incentive Badge -->
+            <div class="premium-badge">
+                <i class="fas fa-crown"></i> Highest Incentives in the Market 🚀
             </div>
+
+            <h2 class="main-heading">Join Our Premium<br><span class="highlight">DSA Network</span></h2>
+            
+            <ul class="benefits-list">
+                <li><i class="fas fa-check-circle"></i> Earn 10% to 70% Commission</li>
+                <li><i class="fas fa-check-circle"></i> Zero Investment Required</li>
+                <li><i class="fas fa-check-circle"></i> Instant ID Activation</li>
+                <li><i class="fas fa-check-circle"></i> Real-time File Tracking</li>
+            </ul>
         </div>
 
         <!-- Right Side: Forms -->
@@ -37,17 +42,17 @@
                 
                 <form id="loginForm">
                     <div class="input-group">
-                        <label>Mobile Number or Email / मोबाइल या ईमेल</label>
-                        <input type="text" placeholder="Enter mobile or email ID" required>
+                        <label>Mobile Number / मोबाइल नंबर</label>
+                        <input type="text" placeholder="Enter registered mobile no." required>
                     </div>
                     <div class="input-group">
                         <label>Password / पासवर्ड</label>
                         <input type="password" placeholder="Enter your password" required>
                     </div>
-                    <div style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
-                        <a href="#" style="font-size: 0.85rem; color: var(--secondary); text-decoration: none; font-weight: 600;">Forgot Password?</a>
+                    <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
+                        <a href="#" style="font-size: 0.85rem; color: var(--text-muted); text-decoration: none; font-weight: 600;">Forgot Password?</a>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login to Dashboard <i class="fas fa-sign-in-alt"></i></button>
+                    <button type="submit" class="btn btn-primary">Login to Dashboard <i class="fas fa-arrow-right"></i></button>
                 </form>
                 <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register')">Register as DSA</a></p>
             </div>
@@ -60,7 +65,7 @@
                 <form id="registerForm">
                     <div class="input-group">
                         <label>Full Name / पूरा नाम (As per PAN)</label>
-                        <input type="text" placeholder="Enter full name" required>
+                        <input type="text" placeholder="Enter your full name" required>
                     </div>
                     <div class="form-row">
                         <div class="input-group">
@@ -68,15 +73,15 @@
                             <input type="tel" placeholder="10 Digit Number" required>
                         </div>
                         <div class="input-group">
-                            <label>Email ID / ईमेल आईडी</label>
-                            <input type="email" placeholder="example@gmail.com" required>
+                            <label>Email ID (Optional)</label>
+                            <input type="email" placeholder="example@gmail.com">
                         </div>
                     </div>
                     <div class="input-group">
                         <label>Create Password / अपना पासवर्ड बनाएं</label>
                         <input type="password" placeholder="Set a strong password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Create Account / अकाउंट बनाएं</button>
+                    <button type="submit" class="btn btn-primary">Create Account <i class="fas fa-user-plus"></i></button>
                 </form>
                 <p class="switch-form">Already a partner? <a href="#" onclick="switchForm('login')">Login here</a></p>
             </div>
