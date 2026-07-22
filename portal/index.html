@@ -34,15 +34,21 @@
                 
                 <form id="registerForm">
                     <div class="input-group">
-                        <label>Full Name / पूरा नाम (As per PAN)</label>
+                        <label>Full Name / पूरा नाम (As per PAN) <span style="color: red;">*</span></label>
                         <input type="text" placeholder="Enter your full name" required>
                     </div>
-                    <div class="input-group">
-                        <label>Mobile Number / मोबाइल नं.</label>
-                        <input type="tel" placeholder="10 Digit Number" required>
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Mobile Number / मोबाइल नं. <span style="color: red;">*</span></label>
+                            <input type="tel" placeholder="10 Digit Number" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email ID / ईमेल आईडी <span style="color: red;">*</span></label>
+                            <input type="email" placeholder="example@gmail.com" required>
+                        </div>
                     </div>
                     <div class="input-group">
-                        <label>Create Password / अपना पासवर्ड बनाएं</label>
+                        <label>Create Password / अपना पासवर्ड बनाएं <span style="color: red;">*</span></label>
                         <input type="password" placeholder="Set a strong password" required>
                     </div>
                     <button type="submit" class="btn btn-primary">Register Now <i class="fas fa-arrow-right"></i></button>
@@ -55,15 +61,15 @@
             <!-- 2. LOGIN FORM (Hidden) -->
             <div id="login-box" class="form-box">
                 <h3>Partner Login <span class="hindi-text">लॉग-इन करें</span></h3>
-                <p class="sub-text">Enter your details to access your DSA dashboard.</p>
+                <p class="sub-text">Enter your Email ID or Mobile to access your dashboard.</p>
                 
                 <form id="loginForm">
                     <div class="input-group">
-                        <label>Mobile Number / मोबाइल नंबर</label>
-                        <input type="text" placeholder="Enter registered mobile no." required>
+                        <label>Email ID or Mobile No. / ईमेल या मोबाइल <span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Enter registered Email or Mobile" required>
                     </div>
                     <div class="input-group">
-                        <label>Password / पासवर्ड</label>
+                        <label>Password / पासवर्ड <span style="color: red;">*</span></label>
                         <input type="password" placeholder="Enter your password" required>
                     </div>
                     <div style="text-align: right; margin-top: -10px; margin-bottom: 20px;">
