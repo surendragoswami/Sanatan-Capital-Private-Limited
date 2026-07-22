@@ -12,13 +12,19 @@ function switchForm(formName) {
     }
 }
 
-// Form Submit Rokne ke liye (Demo purpose)
+// Login Demo Logic
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert("लॉग-इन सिस्टम जल्द ही बैकएंड से जोड़ा जाएगा!");
+    alert("✅ Login Successful!\n\nRedirecting to Sanatan Capital Dashboard...");
+    // Future: Here we will redirect to dashboard.html
 });
 
+// Registration Demo Logic
 document.getElementById('registerForm').addEventListener('submit', function(e) {
     e.preventDefault();
-    alert("✅ आवेदन फॉर्म सबमिट हो गया। (जल्द ही एडमिन पैनल से जुड़ जाएगा)");
+    alert("🎉 Account Created Successfully!\n\nअब आपको डैशबोर्ड पर भेजा जा रहा है। वहाँ आपको अपनी KYC (PAN, Aadhaar) सबमिट करनी होगी ताकि आपकी ID एक्टिवेट हो सके।");
+    
+    // Auto switch to login after registration demo
+    document.getElementById('registerForm').reset();
+    switchForm('login');
 });
