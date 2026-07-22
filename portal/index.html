@@ -22,7 +22,7 @@
                     <li><i class="fas fa-check-circle"></i> Zero Investment / ज़ीरो इन्वेस्टमेंट</li>
                     <li><i class="fas fa-check-circle"></i> High Payouts / शानदार कमीशन</li>
                     <li><i class="fas fa-check-circle"></i> 100% Transparency / पूरी पारदर्शिता</li>
-                    <li><i class="fas fa-check-circle"></i> Real-time Tracking / लाइव ट्रैकिंग</li>
+                    <li><i class="fas fa-check-circle"></i> Instant Activation / तुरंत आईडी चालू</li>
                 </ul>
             </div>
         </div>
@@ -33,53 +33,50 @@
             <!-- 1. LOGIN FORM -->
             <div id="login-box" class="form-box active">
                 <h3>Partner Login <br><span class="hindi-text">पार्टनर लॉग-इन</span></h3>
-                <p class="sub-text">Welcome back! Please enter your details.</p>
+                <p class="sub-text">Welcome back! Please enter your details to access dashboard.</p>
                 
                 <form id="loginForm">
                     <div class="input-group">
-                        <label>Mobile Number / मोबाइल नंबर</label>
-                        <input type="tel" placeholder="Enter 10 digit number" required>
+                        <label>Mobile Number or Email / मोबाइल या ईमेल</label>
+                        <input type="text" placeholder="Enter mobile or email ID" required>
                     </div>
                     <div class="input-group">
                         <label>Password / पासवर्ड</label>
                         <input type="password" placeholder="Enter your password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Login / लॉग-इन करें</button>
+                    <div style="text-align: right; margin-top: -10px; margin-bottom: 15px;">
+                        <a href="#" style="font-size: 0.85rem; color: var(--secondary); text-decoration: none; font-weight: 600;">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Login to Dashboard <i class="fas fa-sign-in-alt"></i></button>
                 </form>
-                <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register')">Join as DSA</a></p>
+                <p class="switch-form">Don't have an account? <a href="#" onclick="switchForm('register')">Register as DSA</a></p>
             </div>
 
             <!-- 2. REGISTRATION FORM (Hidden by default) -->
             <div id="register-box" class="form-box">
                 <h3>DSA Registration <br><span class="hindi-text">नया DSA पंजीकरण</span></h3>
-                <p class="sub-text">Fill the form to partner with Sanatan Capital.</p>
+                <p class="sub-text">Create your account to partner with Sanatan Capital.</p>
                 
                 <form id="registerForm">
+                    <div class="input-group">
+                        <label>Full Name / पूरा नाम (As per PAN)</label>
+                        <input type="text" placeholder="Enter full name" required>
+                    </div>
                     <div class="form-row">
-                        <div class="input-group">
-                            <label>Full Name / पूरा नाम</label>
-                            <input type="text" placeholder="As per PAN Card" required>
-                        </div>
                         <div class="input-group">
                             <label>Mobile Number / मोबाइल नं.</label>
                             <input type="tel" placeholder="10 Digit Number" required>
                         </div>
-                    </div>
-                    <div class="form-row">
                         <div class="input-group">
-                            <label>PAN Card Number</label>
-                            <input type="text" placeholder="ABCDE1234F" style="text-transform: uppercase;" required>
-                        </div>
-                        <div class="input-group">
-                            <label>Aadhaar Number</label>
-                            <input type="number" placeholder="12 Digit Aadhaar" required>
+                            <label>Email ID / ईमेल आईडी</label>
+                            <input type="email" placeholder="example@gmail.com" required>
                         </div>
                     </div>
                     <div class="input-group">
-                        <label>Upload PAN Card <i class="fas fa-paperclip"></i></label>
-                        <input type="file" required>
+                        <label>Create Password / अपना पासवर्ड बनाएं</label>
+                        <input type="password" placeholder="Set a strong password" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit Application / आवेदन जमा करें</button>
+                    <button type="submit" class="btn btn-primary">Create Account / अकाउंट बनाएं</button>
                 </form>
                 <p class="switch-form">Already a partner? <a href="#" onclick="switchForm('login')">Login here</a></p>
             </div>
