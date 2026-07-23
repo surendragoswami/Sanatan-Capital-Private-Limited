@@ -60,12 +60,12 @@
             <!-- 2. LOGIN FORM (Hidden) -->
             <div id="login-box" class="form-box">
                 <h3>Partner Login <span class="hindi-text">लॉग-इन करें</span></h3>
-                <p class="sub-text">Enter your Email ID or Mobile to access your dashboard.</p>
+                <p class="sub-text">Enter your Email ID to access your dashboard.</p>
                 
                 <form id="loginForm">
                     <div class="input-group">
-                        <label>Email ID or Mobile No. / ईमेल या मोबाइल <span style="color: red;">*</span></label>
-                        <input type="text" placeholder="Enter registered Email or Mobile" required>
+                        <label>Email ID / ईमेल आईडी <span style="color: red;">*</span></label>
+                        <input type="text" placeholder="Enter registered Email ID" required>
                     </div>
                     <div class="input-group">
                         <label>Password / पासवर्ड <span style="color: red;">*</span></label>
@@ -84,7 +84,7 @@
             <!-- 3. OTP VERIFICATION FORM (Hidden) -->
             <div id="otp-box" class="form-box">
                 <h3>Verify OTP <span class="hindi-text">OTP दर्ज करें</span></h3>
-                <p class="sub-text">Please enter the 6-digit OTP sent to your Mobile and Email.</p>
+                <p class="sub-text">Please enter the 6-digit OTP sent to your Email ID.</p>
                 
                 <form id="otpForm">
                     <div class="input-group">
@@ -142,16 +142,15 @@
 
     </div>
 
-    <!-- 1. Supabase Library -->
+    <!-- Supabase Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- 2. Master Backend Logic Script -->
+    <!-- Master Backend Logic Script -->
     <script>
         // 1. Supabase Setup
         const SUPABASE_URL = 'https://wkpoubvvpvolxzlzhfgt.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndrcG91YnZ2cHZvbHh6bHpoZmd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MjU3NzQsImV4cCI6MjEwMDMwMTc3NH0.DncM1ytnTmeup143FkX0q0iX-F5bPBJcXi9WKhHDEO8';
 
-        // 'supabaseClient' नाम से बनाया ताकि कोई टकराव न हो
         const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // 2. Form Switcher Logic
@@ -174,7 +173,7 @@
         if (registerForm) {
             registerForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                const emailInput = this.querySelector('input[type="email"]').value;
+                const emailInput = this.querySelector('input[type="email"]').value.trim();
                 const submitBtn = this.querySelector('button');
                 
                 submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
@@ -195,14 +194,20 @@
             });
         }
 
-        // 4. Login System
+        // 4. Login System with Smart Filter
         const loginForm = document.getElementById('loginForm');
         if (loginForm) {
             loginForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                const emailInput = this.querySelector('input[type="text"]').value;
+                const emailInput = this.querySelector('input[type="text"]').value.trim();
                 const submitBtn = this.querySelector('button');
                 
+                // SMART FILTER: Check if user entered numbers instead of email
+                if (/^\d+$/.test(emailInput)) {
+                    alert("⚠️ अभी मोबाइल SMS सर्विस चालू नहीं है। कृपया लॉगिन करने के लिए अपनी Email ID डालें।");
+                    return; // Stop the process here so it doesn't crash
+                }
+
                 submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
                 submitBtn.disabled = true;
 
@@ -212,7 +217,7 @@
                 submitBtn.disabled = false;
 
                 if (error) {
-                    alert("❌ Error: " + error.message + "\n\n(Hint: अभी सिर्फ Email डालकर टेस्ट करें, मोबाइल नंबर नहीं)");
+                    alert("❌ Error: " + error.message);
                 } else {
                     alert("✅ Login OTP sent to your Email ID: " + emailInput);
                     sessionStorage.setItem('dsa_email', emailInput);
@@ -226,10 +231,15 @@
         if (otpForm) {
             otpForm.addEventListener('submit', async function(e) {
                 e.preventDefault();
-                const otpInput = this.querySelector('input[type="text"]').value;
+                const otpInput = this.querySelector('input[type="text"]').value.trim();
                 const savedEmail = sessionStorage.getItem('dsa_email');
                 const submitBtn = this.querySelector('button');
                 
+                if (!savedEmail) {
+                    alert("⚠️ Session expired. Please go back and enter your email again.");
+                    return;
+                }
+
                 submitBtn.innerHTML = 'Verifying... <i class="fas fa-spinner fa-spin"></i>';
                 submitBtn.disabled = true;
 
