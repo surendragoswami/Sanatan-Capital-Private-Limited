@@ -81,7 +81,7 @@
                 </div>
             </div>
 
-                        <!-- 3. OTP VERIFICATION FORM (Hidden) -->
+            <!-- 3. OTP VERIFICATION FORM (Hidden) -->
             <div id="otp-box" class="form-box">
                 <h3>Verify OTP <span class="hindi-text">OTP दर्ज करें</span></h3>
                 <p class="sub-text">Please enter the 6-digit OTP sent to your Mobile and Email.</p>
@@ -98,7 +98,6 @@
                     <p class="switch-form" style="margin-top: 15px;"><a href="#" onclick="switchForm('register')"><i class="fas fa-arrow-left"></i> Back to Registration</a></p>
                 </div>
             </div>
-
 
         </div>
 
@@ -143,19 +142,19 @@
 
     </div>
 
-    <!-- 1. Supabase Library -->
+    <!-- Supabase Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    
-    <!-- 2. Your Custom Code (Directly inside HTML) -->
+
+    <!-- Master Backend Logic Script -->
     <script>
-        // Supabase Setup
+        // 1. Supabase Setup
         const SUPABASE_URL = 'https://wkpoubvvpvolxzlzhfgt.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndrcG91YnZ2cHZvbHh6bHpoZmd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MjU3NzQsImV4cCI6MjEwMDMwMTc3NH0.DncM1ytnTmeup143FkX0q0iX-F5bPBJcXi9WKhHDEO8';
 
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
-        // Form Switcher
-        function switchForm(formName) {
+        // 2. Form Switcher Logic
+        window.switchForm = function(formName) {
             document.getElementById('login-box').classList.remove('active');
             document.getElementById('register-box').classList.remove('active');
             document.getElementById('otp-box').classList.remove('active');
@@ -169,82 +168,82 @@
             }
         }
 
-        // Register Form Submit
-        document.getElementById('registerForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="email"]').value;
-            const submitBtn = this.querySelector('button');
+        // Wait for page to load completely before attaching events
+        document.addEventListener('DOMContentLoaded', function() {
             
-            submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
-            submitBtn.disabled = true;
+            // 3. Registration System
+            document.getElementById('registerForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="email"]').value;
+                const submitBtn = this.querySelector('button');
+                
+                submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
 
-            const { data, error } = await supabase.auth.signInWithOtp({ email: emailInput });
+                const { data, error } = await supabase.auth.signInWithOtp({ email: emailInput });
 
-            submitBtn.innerHTML = 'Register Now <i class="fas fa-arrow-right"></i>';
-            submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Register Now <i class="fas fa-arrow-right"></i>';
+                submitBtn.disabled = false;
 
-            if (error) {
-                alert("Error: " + error.message);
-            } else {
-                alert("✅ OTP sent to " + emailInput);
-                sessionStorage.setItem('dsa_email', emailInput);
-                switchForm('otp');
-            }
-        });
-
-        // Login Form Submit
-        document.getElementById('loginForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const emailInput = this.querySelector('input[type="text"]').value;
-            const submitBtn = this.querySelector('button');
-            
-            submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
-            submitBtn.disabled = true;
-
-            const { data, error } = await supabase.auth.signInWithOtp({ email: emailInput });
-
-            submitBtn.innerHTML = 'Login to Dashboard <i class="fas fa-sign-in-alt"></i>';
-            submitBtn.disabled = false;
-
-            if (error) {
-                alert("Error: " + error.message);
-            } else {
-                alert("✅ Login OTP sent to " + emailInput);
-                sessionStorage.setItem('dsa_email', emailInput);
-                switchForm('otp');
-            }
-        });
-
-        // OTP Verification
-        document.getElementById('otpForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const otpInput = this.querySelector('input[type="text"]').value;
-            const savedEmail = sessionStorage.getItem('dsa_email');
-            const submitBtn = this.querySelector('button');
-            
-            submitBtn.innerHTML = 'Verifying... <i class="fas fa-spinner fa-spin"></i>';
-            submitBtn.disabled = true;
-
-            const { data, error } = await supabase.auth.verifyOtp({
-                email: savedEmail,
-                token: otpInput,
-                type: 'email'
+                if (error) {
+                    alert("❌ Error: " + error.message);
+                } else {
+                    alert("✅ OTP sent to your Email ID: " + emailInput);
+                    sessionStorage.setItem('dsa_email', emailInput);
+                    switchForm('otp');
+                }
             });
 
-            submitBtn.innerHTML = 'Verify & Register <i class="fas fa-check-circle"></i>';
-            submitBtn.disabled = false;
+            // 4. Login System
+            document.getElementById('loginForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const emailInput = this.querySelector('input[type="text"]').value;
+                const submitBtn = this.querySelector('button');
+                
+                submitBtn.innerHTML = 'Sending OTP... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
 
-            if (error) {
-                alert("❌ Invalid OTP! गलत OTP, कृपया दोबारा चेक करें।");
-            } else {
-                alert("🎉 Verification Successful! Welcome to Sanatan Capital.");
-                window.location.href = "dashboard.html";
-            }
+                const { data, error } = await supabase.auth.signInWithOtp({ email: emailInput });
+
+                submitBtn.innerHTML = 'Login to Dashboard <i class="fas fa-sign-in-alt"></i>';
+                submitBtn.disabled = false;
+
+                if (error) {
+                    alert("❌ Error: " + error.message);
+                } else {
+                    alert("✅ Login OTP sent to your Email ID: " + emailInput);
+                    sessionStorage.setItem('dsa_email', emailInput);
+                    switchForm('otp');
+                }
+            });
+
+            // 5. Verify OTP System
+            document.getElementById('otpForm').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                const otpInput = this.querySelector('input[type="text"]').value;
+                const savedEmail = sessionStorage.getItem('dsa_email');
+                const submitBtn = this.querySelector('button');
+                
+                submitBtn.innerHTML = 'Verifying... <i class="fas fa-spinner fa-spin"></i>';
+                submitBtn.disabled = true;
+
+                const { data, error } = await supabase.auth.verifyOtp({
+                    email: savedEmail,
+                    token: otpInput,
+                    type: 'email'
+                });
+
+                submitBtn.innerHTML = 'Verify & Register <i class="fas fa-check-circle"></i>';
+                submitBtn.disabled = false;
+
+                if (error) {
+                    alert("❌ Invalid OTP! आपने गलत OTP डाला है, कृपया दोबारा चेक करें।");
+                } else {
+                    alert("🎉 Verification Successful! \n\nWelcome to Sanatan Capital. Redirecting to your Dashboard...");
+                    window.location.href = "dashboard.html";
+                }
+            });
         });
     </script>
 </body>
 </html>
-
-</body>
-</html>
-
