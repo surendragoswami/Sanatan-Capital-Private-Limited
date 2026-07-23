@@ -11,7 +11,6 @@
 <body>
 
     <div class="premium-wrapper">
-        <!-- Header -->
         <header class="top-header">
             <img src="../assets/logo-horizontal.png" alt="Sanatan Capital Logo" class="brand-logo" onerror="this.onerror=null; this.src='https://sanatancapital.github.io/Sanatan-Capital-Private-Limited/assets/logo-horizontal.png';">
             <div class="premium-badge"><i class="fas fa-crown"></i> Premium DSA Partner Program</div>
@@ -19,21 +18,27 @@
             <p class="tagline">Join Sanatan Capital. Simple registration, zero investment, and fastest approvals.</p>
         </header>
 
-        <!-- Form Area -->
         <div class="form-container">
             
             <!-- 1. REGISTRATION FORM -->
             <div id="register-box" class="form-box active">
                 <h3>Create Account <span class="hindi-text">पार्टनर बनें</span></h3>
-                <p class="sub-text">Register using Email or Mobile.</p>
+                <p class="sub-text">Basic details only. (KYC inside dashboard).</p>
                 <form id="registerForm">
                     <div class="input-group">
-                        <label>Full Name <span style="color: red;">*</span></label>
+                        <label>Full Name / पूरा नाम <span style="color: red;">*</span></label>
                         <input type="text" id="regName" placeholder="As per PAN" required>
                     </div>
-                    <div class="input-group">
-                        <label>Email ID or Mobile No. <span style="color: red;">*</span></label>
-                        <input type="text" id="regId" placeholder="example@gmail.com OR 9876543210" required>
+                    <!-- Alag Alag Mobile aur Email Option -->
+                    <div class="form-row">
+                        <div class="input-group">
+                            <label>Mobile No. <span style="color: red;">*</span></label>
+                            <input type="tel" id="regMobile" placeholder="10 Digit Number" pattern="\d{10}" required>
+                        </div>
+                        <div class="input-group">
+                            <label>Email ID <span style="color: red;">*</span></label>
+                            <input type="email" id="regEmail" placeholder="example@gmail.com" required>
+                        </div>
                     </div>
                     <div class="input-group">
                         <label>Create Password <span style="color: red;">*</span></label>
@@ -46,13 +51,13 @@
                 </div>
             </div>
 
-            <!-- 2. LOGIN FORM (Password & OTP both) -->
+            <!-- 2. LOGIN FORM -->
             <div id="login-box" class="form-box">
                 <h3>Partner Login <span class="hindi-text">लॉग-इन करें</span></h3>
                 <form id="loginForm">
                     <div class="input-group">
-                        <label>Email ID or Mobile No. <span style="color: red;">*</span></label>
-                        <input type="text" id="loginId" placeholder="Enter registered Email or Mobile" required>
+                        <label>Email ID <span style="color: red;">*</span></label>
+                        <input type="email" id="loginId" placeholder="Enter registered Email" required>
                     </div>
                     <div class="input-group" id="passwordGroup">
                         <label>Password <span style="color: red;">*</span></label>
@@ -72,11 +77,11 @@
             <!-- 3. FORGOT PASSWORD FORM -->
             <div id="forgot-box" class="form-box">
                 <h3>Reset Password <span class="hindi-text">पासवर्ड बदलें</span></h3>
-                <p class="sub-text">Enter your Email/Mobile to receive a reset OTP.</p>
+                <p class="sub-text">Enter your Email to receive a reset OTP.</p>
                 <form id="forgotForm">
                     <div class="input-group">
-                        <label>Email ID or Mobile No. <span style="color: red;">*</span></label>
-                        <input type="text" id="forgotId" placeholder="Registered Email or Mobile" required>
+                        <label>Email ID <span style="color: red;">*</span></label>
+                        <input type="email" id="forgotId" placeholder="Registered Email" required>
                     </div>
                     <button type="submit" class="btn btn-primary" id="forgotBtn">Send Reset OTP <i class="fas fa-key"></i></button>
                 </form>
@@ -85,16 +90,15 @@
                 </div>
             </div>
 
-            <!-- 4. OTP VERIFICATION FORM (Universal) -->
+            <!-- 4. OTP VERIFICATION FORM -->
             <div id="otp-box" class="form-box">
                 <h3>Verify OTP <span class="hindi-text">OTP दर्ज करें</span></h3>
-                <p class="sub-text">Please enter the 6-digit OTP sent to you.</p>
+                <p class="sub-text">Please enter the 6-digit OTP sent to your Email.</p>
                 <form id="otpForm">
                     <div class="input-group">
                         <label>Enter OTP <span style="color: red;">*</span></label>
                         <input type="text" id="otpInput" placeholder="XXXXXX" maxlength="6" pattern="\d{6}" required>
                     </div>
-                    <!-- Hidden field for New Password (only visible during password reset) -->
                     <div class="input-group" id="newPwdGroup" style="display: none;">
                         <label>Set New Password <span style="color: red;">*</span></label>
                         <input type="password" id="newPwd" placeholder="Enter new password">
@@ -106,10 +110,7 @@
         </div>
     </div>
 
-   <!-- 1. Supabase Library -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-
-    <!-- 2. Master Backend Logic Script -->
     <script>
         const SUPABASE_URL = 'https://wkpoubvvpvolxzlzhfgt.supabase.co';
         const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6IndrcG91YnZ2cHZvbHh6bHpoZmd0Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODQ3MjU3NzQsImV4cCI6MjEwMDMwMTc3NH0.DncM1ytnTmeup143FkX0q0iX-F5bPBJcXi9WKhHDEO8';
@@ -118,13 +119,9 @@
         let currentAction = ""; 
         let loginMode = "password"; 
 
-        // चेक करने के लिए कि इनपुट मोबाइल नंबर है या ईमेल
-        function isMobile(input) { return /^\d{10}$/.test(input); }
-
         window.switchForm = function(formName) {
             document.querySelectorAll('.form-box').forEach(box => box.classList.remove('active'));
             document.getElementById(formName + '-box').classList.add('active');
-            
             const newPwdGroup = document.getElementById('newPwdGroup');
             if(newPwdGroup) newPwdGroup.style.display = 'none';
         }
@@ -133,7 +130,6 @@
             const pwdGroup = document.getElementById('passwordGroup');
             const toggleBtn = document.getElementById('loginToggleBtn');
             const loginBtn = document.getElementById('loginBtn');
-            const loginIdInput = document.getElementById('loginId');
             
             if (loginMode === "password") {
                 loginMode = "otp";
@@ -141,14 +137,12 @@
                 document.getElementById('loginPwd').required = false;
                 toggleBtn.innerText = "Login via Password instead";
                 loginBtn.innerHTML = 'Send Login OTP to Email <i class="fas fa-paper-plane"></i>';
-                loginIdInput.placeholder = "Enter registered Email ID"; // OTP ke liye sirf Email
             } else {
                 loginMode = "password";
                 pwdGroup.style.display = "block";
                 document.getElementById('loginPwd').required = true;
                 toggleBtn.innerText = "Login via OTP instead";
                 loginBtn.innerHTML = 'Login to Dashboard <i class="fas fa-sign-in-alt"></i>';
-                loginIdInput.placeholder = "Enter registered Email or Mobile";
             }
         }
 
@@ -157,22 +151,19 @@
         if(registerForm) {
             registerForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const id = document.getElementById('regId').value;
+                const email = document.getElementById('regEmail').value;
+                const mobile = document.getElementById('regMobile').value;
                 const pwd = document.getElementById('regPwd').value;
                 const name = document.getElementById('regName').value;
-
-                if (isMobile(id)) {
-                    alert("⚠️ Registration Error: कृपया मोबाइल नंबर की जगह अपनी Email ID डालें। OTP वेरिफिकेशन ईमेल पर किया जाएगा।");
-                    return;
-                }
 
                 document.getElementById('regBtn').innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
                 document.getElementById('regBtn').disabled = true;
                 
+                // Supabase me user ka data save kar rahe hain
                 const { error } = await supabaseClient.auth.signUp({ 
-                    email: id, 
+                    email: email, 
                     password: pwd,
-                    options: { data: { full_name: name } }
+                    options: { data: { full_name: name, mobile_number: mobile } }
                 });
 
                 document.getElementById('regBtn').innerHTML = 'Send OTP to Register <i class="fas fa-arrow-right"></i>';
@@ -180,8 +171,8 @@
 
                 if (error) alert("❌ Error: " + error.message);
                 else {
-                    alert("✅ Registration OTP Sent to " + id);
-                    sessionStorage.setItem('temp_id', id);
+                    alert("✅ Registration OTP Sent to " + email);
+                    sessionStorage.setItem('temp_id', email);
                     currentAction = "register";
                     switchForm('otp');
                 }
@@ -193,7 +184,7 @@
         if(loginForm) {
             loginForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const id = document.getElementById('loginId').value;
+                const email = document.getElementById('loginId').value;
                 const pwd = document.getElementById('loginPwd').value;
                 const loginBtn = document.getElementById('loginBtn');
                 
@@ -201,41 +192,21 @@
                 loginBtn.disabled = true;
 
                 if (loginMode === "password") {
-                    // Password Login (Can be Email)
-                    // Note: Since we are using free tier, users are registered via Email. 
-                    // So login id should be email. If you want mobile login with pwd, we need separate database logic.
-                    if(isMobile(id)){
-                         alert("⚠️ कृपया लॉगिन करने के लिए अपनी Email ID का उपयोग करें।");
-                         loginBtn.innerHTML = 'Login to Dashboard <i class="fas fa-sign-in-alt"></i>';
-                         loginBtn.disabled = false;
-                         return;
-                    }
-
-                    const { error } = await supabaseClient.auth.signInWithPassword({ email: id, password: pwd });
-                    
+                    const { error } = await supabaseClient.auth.signInWithPassword({ email: email, password: pwd });
                     loginBtn.innerHTML = 'Login to Dashboard <i class="fas fa-sign-in-alt"></i>';
                     loginBtn.disabled = false;
                     
                     if (error) alert("❌ Login Failed: " + error.message);
                     else window.location.href = "dashboard.html";
                 } else {
-                    // OTP Login
-                    if (isMobile(id)) {
-                        alert("⚠️ OTP सुविधा अभी सिर्फ Email ID के लिए उपलब्ध है। कृपया अपनी Email ID डालें।");
-                        loginBtn.innerHTML = 'Send Login OTP to Email <i class="fas fa-paper-plane"></i>';
-                        loginBtn.disabled = false;
-                        return;
-                    }
-
-                    const { error } = await supabaseClient.auth.signInWithOtp({ email: id });
-                    
+                    const { error } = await supabaseClient.auth.signInWithOtp({ email: email });
                     loginBtn.innerHTML = 'Send Login OTP to Email <i class="fas fa-paper-plane"></i>';
                     loginBtn.disabled = false;
                     
                     if (error) alert("❌ Error: " + error.message);
                     else {
-                        alert("✅ Login OTP Sent to " + id);
-                        sessionStorage.setItem('temp_id', id);
+                        alert("✅ Login OTP Sent to " + email);
+                        sessionStorage.setItem('temp_id', email);
                         currentAction = "login";
                         switchForm('otp');
                     }
@@ -248,25 +219,20 @@
         if(forgotForm) {
             forgotForm.addEventListener('submit', async (e) => {
                 e.preventDefault();
-                const id = document.getElementById('forgotId').value;
-                
-                if (isMobile(id)) {
-                    alert("⚠️ पासवर्ड रीसेट लिंक/OTP आपकी Email ID पर भेजा जाता है। कृपया अपनी रजिस्टर्ड Email ID डालें।");
-                    return;
-                }
+                const email = document.getElementById('forgotId').value;
 
                 document.getElementById('forgotBtn').innerHTML = 'Sending... <i class="fas fa-spinner fa-spin"></i>';
                 document.getElementById('forgotBtn').disabled = true;
 
-                const { error } = await supabaseClient.auth.resetPasswordForEmail(id);
+                const { error } = await supabaseClient.auth.resetPasswordForEmail(email);
 
                 document.getElementById('forgotBtn').innerHTML = 'Send Reset OTP <i class="fas fa-key"></i>';
                 document.getElementById('forgotBtn').disabled = false;
 
                 if (error) alert("❌ Error: " + error.message);
                 else {
-                    alert("✅ Password Reset OTP Sent to " + id);
-                    sessionStorage.setItem('temp_id', id);
+                    alert("✅ Password Reset OTP Sent to " + email);
+                    sessionStorage.setItem('temp_id', email);
                     currentAction = "forgot";
                     switchForm('otp');
                     
@@ -323,6 +289,5 @@
             });
         }
     </script>
-    
 </body>
 </html>
